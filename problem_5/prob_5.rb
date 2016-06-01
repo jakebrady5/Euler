@@ -1,13 +1,16 @@
-factors = [20, 19, 18, 17, 16, 15, 14, 13, 12, 11]
+require 'prime'
 
-def lowest_common_multiple(array)
-  idx = array[0]*array[1]
-  until array.all?{|a| idx % a == 0}
-    idx += 20
-    puts idx
+def collected_prime_factors(max)
+  factors = Prime.take_while{|a| a <= max}
+  multiple = 1
+  factors.each do |n|
+    multiple = multiple*(n**power_finder(max, n))
   end
-  puts idx
-
+  puts multiple
 end
 
-lowest_common_multiple(factors)
+def power_finder(max, n)
+  Math.log(max, n).floor
+end
+
+collected_prime_factors(20)
