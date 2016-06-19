@@ -1,21 +1,16 @@
 def special_triplet
-  a = 2
-  b = 3
-  c = 4
-
-  while a < c do 
-    while b < c do 
-      while c < 998 do
-        return a*b*c if a**2 + b**2 == c**2
-        c += 1
-      end
-      b += 1
-      c = b + 1
+  n = 1
+  m = 1
+  result = []
+  while n < 32 do 
+    while m < 32 do
+      result = [n, m] if (n**2 - m**2) + (2*n*m) + (n**2 + m**2) == 1000
+      m += 1
     end
-    a += 1
-    b = a + 1
-    c = b + 1
+    n += 1
+    m = 1
   end
+  puts (result[0]**2 - result[1]**2) * (2*result[0]*result[1]) * (result[0]**2 + result[1]**2)
 end
 
 puts special_triplet
