@@ -10,7 +10,11 @@ def special_triplet
     n += 1
     m = 1
   end
-  puts (result[0]**2 - result[1]**2) * (2*result[0]*result[1]) * (result[0]**2 + result[1]**2)
+  duplet_to_triplet_product(result[0], result[1])
 end
 
-puts special_triplet
+def duplet_to_triplet_product(n, m)
+  puts (n**2 - m**2) * (2*n*m) * (n**2 + m**2)
+end
+
+special_triplet
